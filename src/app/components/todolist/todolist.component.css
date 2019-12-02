@@ -21,6 +21,12 @@
     min-width: 300px;
 }
 
+.todo-inner-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .todo-form-container {
     display: flex;
     justify-content: space-between;
@@ -40,9 +46,22 @@
 }
 
 .todo-btn {
-    min-width: 100px;
+    width: 100px;
     background-color: lightgrey;
     border: 2px solid lightgrey;
     padding: 15px;
+}
+
+.btn-del {
+    width: 50px;
+    height: 50px;
+    background-color: crimson;
+    color: white;
+    border: 2px solid crimson;
+}
+
+
+.todo-not-found {
+    text-align: center;
 }
 

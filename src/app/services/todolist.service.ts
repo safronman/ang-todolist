@@ -34,4 +34,14 @@ export class TodolistService {
             );
     }
 
+    deleteTodolist(todoId) {
+        return this.http.delete<void>(`https://social-network.samuraijs.com/api/1.0/todo-lists/${todoId}`, {
+            withCredentials: true,
+            headers: new HttpHeaders({
+                'API-KEY': '794181ab-6d62-4cfb-bc9f-d539dfac55f1'
+            })
+        });
+    }
+
+
 }

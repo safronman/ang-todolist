@@ -2,15 +2,22 @@
     <div class="todo-header-container">
         <h1 class="todo-header-title">Angular todolist</h1>
         <label>
-            <input type="text" class="todo-header-input" placeholder="Enter todolist title"
-                   [(ngModel)]="todolistTitle">
+            <input type="text"
+                   class="todo-header-input"
+                   placeholder="Enter todolist title"
+                   [(ngModel)]="todolistTitle"
+                   (keyup.enter)="addTodolist()"
+            >
         </label>
         <button class="todo-btn" (click)="addTodolist()">Add todo</button>
     </div>
 
-    <div class="todo-wrapper">
+    <div class="todo-wrapper" *ngIf="todolists.length; else todoNotFound">
         <div class="todo-container" *ngFor="let todolist of todolists">
-            <h2>{{ todolist.title }}</h2>
+            <div class="todo-inner-container">
+                <h2>{{ todolist.title }}</h2>
+                <button class="todo-btn  btn-del" (click)="deleteTodolist(todolist.id)">X</button>
+            </div>
             <div class="todo-form-container">
                 <input type="text" class="todo-input" placeholder="enter task">
                 <button class="todo-btn">Add task</button>
@@ -27,4 +34,9 @@
             </div>
         </div>
     </div>
+    <ng-template #todoNotFound>
+        <h1 class="todo-not-found">Todolists not found. Enter todo title and create new todo</h1>
+    </ng-template>
 </div>
+
+

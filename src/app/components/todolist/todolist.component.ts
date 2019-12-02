@@ -26,6 +26,16 @@ export class TodolistComponent implements OnInit {
         this.todolistService.createTodolist(this.todolistTitle)
             .subscribe((todo: Todolist) => {
                 this.todolists.unshift(todo);
+                this.todolistTitle = '';
+            });
+    }
+
+    deleteTodolist(todoId: string) {
+        this.todolistService.deleteTodolist(todoId)
+            .subscribe(res => {
+                this.todolists = this.todolists.filter((todo: Todolist) => {
+                    return todo.id !== todoId;
+                });
             });
     }
 }
