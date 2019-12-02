@@ -18,7 +18,7 @@ export class TodolistService {
                     'API-KEY': '794181ab-6d62-4cfb-bc9f-d539dfac55f1'
                 })
             })
-            .pipe( delay(1500));
+            .pipe(delay(1500));
     }
 
     createTodolist(title): Observable<Todolist> {
@@ -45,4 +45,17 @@ export class TodolistService {
     }
 
 
+    getTasks(todolistId) {
+        return this.http.get(`https://social-network.samuraijs.com/api/1.0/todo-lists/${todolistId}/tasks`, {
+            withCredentials: true,
+            headers: new HttpHeaders({
+                'API-KEY': '794181ab-6d62-4cfb-bc9f-d539dfac55f1'
+            })
+        })
+            .pipe(
+                map((res: any) => {
+                    return res.items;
+                })
+            );
+    }
 }

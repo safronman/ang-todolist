@@ -24,9 +24,7 @@
             </div>
 
             <div>
-                <app-task></app-task>
-                <app-task></app-task>
-                <app-task></app-task>
+                <app-task [todolistId]="todolist.id"></app-task>
             </div>
             <div>
                 <p>Дата добавления: <b>{{  todolist.addedDate | date: 'longDate' }}</b></p>
