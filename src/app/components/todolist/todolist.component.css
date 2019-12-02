@@ -1,3 +1,19 @@
+.todo-header-container {
+    text-align: center;
+    margin: 0 auto 30px;
+}
+
+.todo-header-title {
+    margin: 20px;
+    font-size: 52px;
+}
+
+.todo-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
 .todo-container {
     border: 2px solid grey;
     padding: 10px;
@@ -10,6 +26,14 @@
     justify-content: space-between;
 }
 
+.todo-header-input {
+    box-sizing: border-box;
+    width: 50%;
+    padding: 15px;
+    border: 2px solid darkgrey;
+    margin-right: 10px;
+}
+
 .todo-input {
     padding: 10px;
     border: 2px solid lightgrey;
@@ -19,4 +43,6 @@
     min-width: 100px;
     background-color: lightgrey;
     border: 2px solid lightgrey;
+    padding: 15px;
 }
+

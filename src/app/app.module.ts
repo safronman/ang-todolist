@@ -6,6 +6,7 @@ import {RouterModule} from '@angular/router';
 import {AppComponent} from './app.component';
 import {TodolistComponent} from './components/todolist/todolist.component';
 import {TaskComponent} from './components/task/task.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {TaskComponent} from './components/task/task.component';
     imports: [
         BrowserModule,
         RouterModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
