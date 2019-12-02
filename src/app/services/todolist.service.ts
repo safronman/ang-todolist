@@ -28,8 +28,7 @@ export class TodolistService {
             })
         })
             .pipe(
-                map((res: Todolist) => {
-                    // todo How to resolve data...
+                map((res: any) => {
                     return res.data.item;
                 })
             );
