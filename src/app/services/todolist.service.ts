@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Todolist} from '../interfaces/interface';
-import {map} from 'rxjs/operators';
+import {delay, map} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class TodolistService {
@@ -17,7 +17,8 @@ export class TodolistService {
                 headers: new HttpHeaders({
                     'API-KEY': '794181ab-6d62-4cfb-bc9f-d539dfac55f1'
                 })
-            });
+            })
+            .pipe( delay(1500));
     }
 
     createTodolist(title): Observable<Todolist> {

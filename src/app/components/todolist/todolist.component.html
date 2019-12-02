@@ -1,17 +1,17 @@
-<div>
-    <div class="todo-header-container">
-        <h1 class="todo-header-title">Angular todolist</h1>
-        <label>
-            <input type="text"
-                   class="todo-header-input"
-                   placeholder="Enter todolist title"
-                   [(ngModel)]="todolistTitle"
-                   (keyup.enter)="addTodolist()"
-            >
-        </label>
-        <button class="todo-btn" (click)="addTodolist()">Add todo</button>
-    </div>
+<div class="todo-header-container">
+    <h1 class="todo-header-title">Angular todolist</h1>
+    <label>
+        <input type="text"
+               class="todo-header-input"
+               placeholder="Enter todolist title"
+               [(ngModel)]="todolistTitle"
+               (keyup.enter)="addTodolist()"
+        >
+    </label>
+    <button class="todo-btn" (click)="addTodolist()">Add todo</button>
+</div>
 
+<div *ngIf="!loadingTodolists; else loadingTodos">
     <div class="todo-wrapper" *ngIf="todolists.length; else todoNotFound">
         <div class="todo-container" *ngFor="let todolist of todolists">
             <div class="todo-inner-container">
@@ -38,5 +38,11 @@
         <h1 class="todo-not-found">Todolists not found. Enter todo title and create new todo</h1>
     </ng-template>
 </div>
+<ng-template #loadingTodos>
+    <h1>Loading...</h1>
+</ng-template>
+
+
+
 
 

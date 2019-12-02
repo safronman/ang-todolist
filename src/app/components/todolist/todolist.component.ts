@@ -9,16 +9,23 @@ import {Todolist} from '../../interfaces/interface';
 })
 export class TodolistComponent implements OnInit {
 
-    todolists: Todolist[];
+    todolists: Todolist[] = [];
     todolistTitle = '';
+    loadingTodolists = false;
 
     constructor(private todolistService: TodolistService) {
     }
 
     ngOnInit() {
+        this.getTodolists();
+    }
+
+    getTodolists() {
+        this.loadingTodolists = true;
         this.todolistService.getTodolists()
             .subscribe((res) => {
                 this.todolists = res;
+                this.loadingTodolists = false;
             });
     }
 
