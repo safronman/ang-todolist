@@ -1,0 +1,22 @@
+.todo-container {
+    border: 2px solid grey;
+    padding: 10px;
+    margin: 10px;
+    min-width: 300px;
+}
+
+.todo-form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-input {
+    padding: 10px;
+    border: 2px solid lightgrey;
+}
+
+.todo-btn {
+    min-width: 100px;
+    background-color: lightgrey;
+    border: 2px solid lightgrey;
+}
