@@ -35,4 +35,13 @@ export class TaskComponent implements OnInit {
                 this.taskTitle = '';
             });
     }
+
+    deleteTask(taskId) {
+        this.todolistService.deleteTask(taskId)
+            .subscribe(res => {
+                this.tasks = this.tasks.filter((task) => {
+                    return task.id !== taskId;
+                });
+            });
+    }
 }

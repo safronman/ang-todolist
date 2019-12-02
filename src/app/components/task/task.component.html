@@ -19,12 +19,12 @@
                 </label>
                 <b>{{ task.title }}</b>
             </div>
-            <button class="btn-del  btn-del-task">Х</button>
+            <button class="btn-del  btn-del-task" (click)="deleteTask(task.id)">Х</button>
         </div>
         <p class="todo-date">{{ task.addedDate | date: 'short'}}</p>
     </div>
 </div>
 
 <ng-template #loading>
-    <p>Tasks not found</p>
+    <p class="center">{{'Tasks not found' | uppercase  }}</p>
 </ng-template>

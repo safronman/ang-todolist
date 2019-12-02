@@ -14,7 +14,7 @@ html, body {
 }
 
 .todo-btn-task {
-   padding: 0;
+    padding: 0;
 }
 
 .btn-del {
@@ -28,4 +28,9 @@ html, body {
 .btn-del-task {
     width: 30px;
     height: 30px;
+}
+
+/*CENTER*/
+.center {
+    text-align: center;
 }
