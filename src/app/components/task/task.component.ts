@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {TodolistService} from '../../services/todolist.service';
 import {Task} from 'src/app/interfaces/interface';
 
@@ -11,7 +11,8 @@ export class TaskComponent implements OnInit {
 
     @Input() todolistId: string;
 
-    tasks: Task[];
+    tasks: Task[] = [];
+    taskTitle = '';
 
     constructor(private todolistService: TodolistService) {
     }
@@ -27,4 +28,11 @@ export class TaskComponent implements OnInit {
             });
     }
 
+    createTask(title) {
+        this.todolistService.createTask(this.todolistId, title)
+            .subscribe((task: Task) => {
+                this.tasks.unshift(task);
+                this.taskTitle = '';
+            });
+    }
 }

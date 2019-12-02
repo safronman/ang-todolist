@@ -25,7 +25,6 @@ export class TodolistComponent implements OnInit {
         this.todolistService.getTodolists()
             .subscribe((res) => {
                 this.todolists = res;
-                console.log(this.todolists)
                 this.loadingTodolists = false;
             });
     }

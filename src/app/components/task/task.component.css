@@ -1,0 +1,24 @@
+.todo-form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-task-wrapper {
+    margin: 20px 0;
+}
+
+.todo-task-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-input {
+    padding: 10px;
+    border: 2px solid lightgrey;
+}
+
+.todo-date {
+    margin: 0;
+    font-size: 14px;
+    font-style: italic;
+}

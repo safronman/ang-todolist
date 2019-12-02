@@ -27,11 +27,6 @@
     align-items: center;
 }
 
-.todo-form-container {
-    display: flex;
-    justify-content: space-between;
-}
-
 .todo-header-input {
     box-sizing: border-box;
     width: 50%;
@@ -39,27 +34,6 @@
     border: 2px solid darkgrey;
     margin-right: 10px;
 }
-
-.todo-input {
-    padding: 10px;
-    border: 2px solid lightgrey;
-}
-
-.todo-btn {
-    width: 100px;
-    background-color: lightgrey;
-    border: 2px solid lightgrey;
-    padding: 15px;
-}
-
-.btn-del {
-    width: 50px;
-    height: 50px;
-    background-color: crimson;
-    color: white;
-    border: 2px solid crimson;
-}
-
 
 .todo-not-found {
     text-align: center;

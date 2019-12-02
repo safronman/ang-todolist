@@ -1,3 +1,30 @@
-<div *ngFor="let task of tasks">
-    <p>{{ task.title }}</p>
+<div class="todo-form-container">
+    <label>
+        <input
+            type="text"
+            class="todo-input"
+            placeholder="enter task"
+            [(ngModel)]="taskTitle"
+            (keyup.enter)="createTask(taskTitle)"
+        >
+    </label>
+    <button class="todo-btn  todo-btn-task" (click)="createTask(taskTitle)">Add task</button>
 </div>
+<div *ngIf="tasks.length; else loading">
+    <div *ngFor="let task of tasks" class="todo-task-wrapper">
+        <div class="todo-task-container">
+            <div>
+                <label>
+                    <input type="checkbox" [checked]="task.completed">
+                </label>
+                <b>{{ task.title }}</b>
+            </div>
+            <button class="btn-del  btn-del-task">Х</button>
+        </div>
+        <p class="todo-date">{{ task.addedDate | date: 'short'}}</p>
+    </div>
+</div>
+
+<ng-template #loading>
+    <p>Tasks not found</p>
+</ng-template>
