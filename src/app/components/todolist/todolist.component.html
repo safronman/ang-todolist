@@ -14,12 +14,29 @@
 <div *ngIf="!loadingTodolists; else loadingTodos">
     <div class="todo-wrapper" *ngIf="todolists.length; else todoNotFound">
         <div class="todo-container" *ngFor="let todolist of todolists">
-            <div class="todo-inner-container">
-                <h2>{{ todolist.title }}</h2>
-                <button class="todo-btn  btn-del" (click)="deleteTodolist(todolist.id)">X</button>
+
+            <div>
+                <div *ngIf="!editMode; else updateTodoTitle">
+                    <div class="todo-inner-container">
+                        <h2 (dblclick)="toggleEditMode()">{{ todolist.title }}</h2>
+                        <button class="todo-btn  btn-del" (click)="deleteTodolist(todolist.id)">X</button>
+                    </div>
+                </div>
+                <ng-template #updateTodoTitle>
+                    <div>
+                        <label>
+                            <input
+                                type="text"
+                                class="todo-input  todo-input-new-title"
+                                placeholder="Enter new title"
+                                (blur)="toggleEditMode()"
+                            >
+                        </label>
+                    </div>
+                </ng-template>
             </div>
 
-            <div >
+            <div>
                 <app-task [todolistId]="todolist.id"></app-task>
             </div>
 

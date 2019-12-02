@@ -12,6 +12,7 @@ export class TodolistComponent implements OnInit {
     todolists: Todolist[] = [];
     todolistTitle = '';
     loadingTodolists = false;
+    editMode = false;
 
     constructor(private todolistService: TodolistService) {
     }
@@ -44,5 +45,18 @@ export class TodolistComponent implements OnInit {
                     return todo.id !== todoId;
                 });
             });
+    }
+
+    updateTodoTitle(todoId, title) {
+        debugger
+        this.todolistService.updateTodoTitle(todoId, title)
+            .subscribe((res) => {
+                debugger
+            });
+    }
+
+    toggleEditMode() {
+        debugger
+        this.editMode = !this.editMode;
     }
 }

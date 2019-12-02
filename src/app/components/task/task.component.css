@@ -12,11 +12,6 @@
     justify-content: space-between;
 }
 
-.todo-input {
-    padding: 10px;
-    border: 2px solid lightgrey;
-}
-
 .todo-date {
     margin: 0;
     font-size: 14px;

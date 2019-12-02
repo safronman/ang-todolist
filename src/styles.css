@@ -5,6 +5,18 @@ html, body {
     font-family: 'Open Sans', sans-serif;
 }
 
+/*INPUT*/
+.todo-input {
+    padding: 10px;
+    border: 2px solid lightgrey;
+}
+
+.todo-input-new-title {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
 /*BUTTONS*/
 .todo-btn {
     width: 100px;
