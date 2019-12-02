@@ -13,6 +13,7 @@ export class TaskComponent implements OnInit {
 
     tasks: Task[] = [];
     taskTitle = '';
+    isTaskLoading: boolean;
 
     constructor(private todolistService: TodolistService) {
     }
@@ -22,9 +23,11 @@ export class TaskComponent implements OnInit {
     }
 
     getTasks(todolistId) {
+        this.isTaskLoading = true;
         this.todolistService.getTasks(todolistId)
             .subscribe((tasks: Task[]) => {
                 this.tasks = tasks;
+                this.isTaskLoading = false;
             });
     }
 

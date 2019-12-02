@@ -53,6 +53,7 @@ export class TodolistService {
             })
         })
             .pipe(
+                delay(1500),
                 map((res: any) => {
                     return res.items;
                 })

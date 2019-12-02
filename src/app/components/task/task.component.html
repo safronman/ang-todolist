@@ -10,21 +10,26 @@
     </label>
     <button class="todo-btn  todo-btn-task" (click)="createTask(taskTitle)">Add task</button>
 </div>
-<div *ngIf="tasks.length; else loading">
-    <div *ngFor="let task of tasks" class="todo-task-wrapper">
-        <div class="todo-task-container">
-            <div>
-                <label>
-                    <input type="checkbox" [checked]="task.completed">
-                </label>
-                <b>{{ task.title }}</b>
+<div *ngIf="!isTaskLoading; else loading" >
+    <div *ngIf="tasks.length; else taskNotFound">
+        <div *ngFor="let task of tasks" class="todo-task-wrapper">
+            <div class="todo-task-container">
+                <div>
+                    <label>
+                        <input type="checkbox" [checked]="task.completed">
+                    </label>
+                    <b>{{ task.title }}</b>
+                </div>
+                <button class="btn-del  btn-del-task" (click)="deleteTask(task.id)">Х</button>
             </div>
-            <button class="btn-del  btn-del-task" (click)="deleteTask(task.id)">Х</button>
+            <p class="todo-date">{{ task.addedDate | date: 'short'}}</p>
         </div>
-        <p class="todo-date">{{ task.addedDate | date: 'short'}}</p>
     </div>
-</div>
 
+    <ng-template #taskNotFound>
+        <p class="center">{{'Tasks not found' | uppercase  }}</p>
+    </ng-template>
+</div>
 <ng-template #loading>
-    <p class="center">{{'Tasks not found' | uppercase  }}</p>
+    <p class="center">Loading...</p>
 </ng-template>
