@@ -24,10 +24,10 @@
                         >
                     </label>
 
-                    <div *ngIf="!taskTitleEditMode; else editTaskTitle">
+                    <div *ngIf="taskTitleEditModeId !== task.id; else editTaskTitle">
                         <b
                             [ngClass]="{'task-completed': task.completed}"
-                            (dblclick)="changeTaskTitleEditMode()"
+                            (dblclick)="changeTaskTitleEditMode(task.id)"
                         >{{ task.title }}
                         </b>
                     </div>

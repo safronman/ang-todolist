@@ -14,7 +14,7 @@ export class TaskComponent implements OnInit {
     tasks: Task[] = [];
     taskTitle = '';
     isTaskLoading: boolean;
-    taskTitleEditMode = false;
+    taskTitleEditModeId = '';
 
     constructor(private todolistService: TodolistService) {
     }
@@ -50,6 +50,7 @@ export class TaskComponent implements OnInit {
     }
 
     changeTaskTitle(e, taskId) {
+        this.taskTitleEditModeId = '';
         const newTaskTitle = e.currentTarget.value;
         this.updateTask({title: newTaskTitle}, taskId);
     }
@@ -67,12 +68,11 @@ export class TaskComponent implements OnInit {
         const newTask = {...task, ...obj};
 
         this.todolistService.updateTask(newTask)
-            .subscribe(res => {
-                this.taskTitleEditMode = false;
+            .subscribe(() => {
             });
     }
 
-    changeTaskTitleEditMode() {
-        this.taskTitleEditMode = true;
+    changeTaskTitleEditMode(id) {
+        this.taskTitleEditModeId = id;
     }
 }
