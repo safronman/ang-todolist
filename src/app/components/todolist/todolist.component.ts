@@ -47,16 +47,15 @@ export class TodolistComponent implements OnInit {
             });
     }
 
-    updateTodoTitle(todoId, title) {
-        debugger
+    updateTodoTitle(todoId: string, title: string) {
         this.todolistService.updateTodoTitle(todoId, title)
-            .subscribe((res) => {
-                debugger
+            .subscribe(() => {
+                this.editMode = false;
             });
     }
 
-    toggleEditMode() {
-        debugger
-        this.editMode = !this.editMode;
+    openInputField() {
+        // todo
+        this.editMode = true;
     }
 }

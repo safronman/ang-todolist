@@ -16,20 +16,22 @@
         <div class="todo-container" *ngFor="let todolist of todolists">
 
             <div>
-                <div *ngIf="!editMode; else updateTodoTitle">
+                <div *ngIf="!editMode; else updateTodoTitleRef">
                     <div class="todo-inner-container">
-                        <h2 (dblclick)="toggleEditMode()">{{ todolist.title }}</h2>
+                        <h2 (dblclick)="openInputField()">{{ todolist.title }}</h2>
                         <button class="todo-btn  btn-del" (click)="deleteTodolist(todolist.id)">X</button>
                     </div>
                 </div>
-                <ng-template #updateTodoTitle>
+                <ng-template #updateTodoTitleRef>
                     <div>
                         <label>
                             <input
                                 type="text"
                                 class="todo-input  todo-input-new-title"
                                 placeholder="Enter new title"
-                                (blur)="toggleEditMode()"
+                                value="{{ todolist.title }}"
+                                [(ngModel)]="todolist.title"
+                                (blur)="updateTodoTitle(todolist.id, todolist.title)"
                             >
                         </label>
                     </div>
