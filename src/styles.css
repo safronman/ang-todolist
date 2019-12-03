@@ -46,3 +46,9 @@ html, body {
 .center {
     text-align: center;
 }
+
+/*COMPLETED TASK*/
+.task-completed {
+    color: grey;
+    text-decoration: line-through;
+}

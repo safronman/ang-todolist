@@ -91,4 +91,18 @@ export class TodolistService {
             })
         });
     }
+
+    updateTask(task): Observable<Task> {
+        return this.http.put(`https://social-network.samuraijs.com/api/1.0/todo-lists/tasks`, task, {
+            withCredentials: true,
+            headers: new HttpHeaders({
+                'API-KEY': '794181ab-6d62-4cfb-bc9f-d539dfac55f1'
+            })
+        })
+            .pipe(
+                map((res: any) => {
+                    return res.data.item;
+                })
+            );
+    }
 }

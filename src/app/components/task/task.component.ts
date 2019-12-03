@@ -14,6 +14,7 @@ export class TaskComponent implements OnInit {
     tasks: Task[] = [];
     taskTitle = '';
     isTaskLoading: boolean;
+    taskTitleEditMode = false;
 
     constructor(private todolistService: TodolistService) {
     }
@@ -46,5 +47,32 @@ export class TaskComponent implements OnInit {
                     return task.id !== taskId;
                 });
             });
+    }
+
+    changeTaskTitle(e, taskId) {
+        const newTaskTitle = e.currentTarget.value;
+        this.updateTask({title: newTaskTitle}, taskId);
+    }
+
+    changeCompletedTaskStatus(e, taskId) {
+        const newStatus = e.currentTarget.checked;
+        this.updateTask({completed: newStatus}, taskId);
+    }
+
+
+    updateTask(obj, taskId) {
+        const task = this.tasks.find((t: Task) => {
+            return t.id === taskId;
+        });
+        const newTask = {...task, ...obj};
+
+        this.todolistService.updateTask(newTask)
+            .subscribe(res => {
+                this.taskTitleEditMode = false;
+            });
+    }
+
+    changeTaskTitleEditMode() {
+        this.taskTitleEditMode = true;
     }
 }

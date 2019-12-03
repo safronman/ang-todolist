@@ -14,11 +14,33 @@
     <div *ngIf="tasks.length; else taskNotFound">
         <div *ngFor="let task of tasks" class="todo-task-wrapper">
             <div class="todo-task-container">
-                <div>
+                <div class="todo-task-inner-container">
                     <label>
-                        <input type="checkbox" [checked]="task.completed">
+                        <input
+                            type="checkbox"
+                            [checked]="task.completed"
+                            [(ngModel)]="task.completed"
+                            (input)="changeCompletedTaskStatus($event, task.id)"
+                        >
                     </label>
-                    <b>{{ task.title }}</b>
+
+                    <div *ngIf="!taskTitleEditMode; else editTaskTitle">
+                        <b
+                            [ngClass]="{'task-completed': task.completed}"
+                            (dblclick)="changeTaskTitleEditMode()"
+                        >{{ task.title }}
+                        </b>
+                    </div>
+                    <ng-template #editTaskTitle>
+                        <input
+                            type="text"
+                            value="{{task.title}}"
+                            [(ngModel)]="task.title"
+                            (change)="task.title"
+                            (blur)="changeTaskTitle($event, task.id)"
+                        >
+                    </ng-template>
+
                 </div>
                 <button class="btn-del  btn-del-task" (click)="deleteTask(task.id)">Х</button>
             </div>
