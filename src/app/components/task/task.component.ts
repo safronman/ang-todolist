@@ -34,17 +34,21 @@ export class TaskComponent implements OnInit {
             });
     }
 
-    createTask(title) {
+    checkTitle() {
         if (this.taskTitle.trim()) {
             this.isTaskTitleError = false;
-            this.todolistService.createTask(this.todolistId, title)
-                .subscribe((task: Task) => {
-                    this.tasks.unshift(task);
-                    this.taskTitle = '';
-                });
+            this.createTask();
         } else {
             this.isTaskTitleError = true;
         }
+    }
+
+    createTask() {
+        this.todolistService.createTask(this.todolistId, this.taskTitle)
+            .subscribe((task: Task) => {
+                this.tasks.unshift(task);
+                this.taskTitle = '';
+            });
     }
 
     deleteTask(taskId) {

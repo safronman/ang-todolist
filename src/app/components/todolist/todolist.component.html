@@ -6,10 +6,10 @@
                [ngClass]="{'input-error': isTodolistTitleError}"
                placeholder="Enter todolist title"
                [(ngModel)]="todolistTitle"
-               (keyup.enter)="addTodolist()"
+               (keyup.enter)="checkTitle()"
         >
     </label>
-    <button class="todo-btn" (click)="addTodolist()">Add todo</button>
+    <button class="todo-btn" (click)="checkTitle()">Add todo</button>
 </div>
 
 <div *ngIf="!loadingTodolists; else loadingTodos">

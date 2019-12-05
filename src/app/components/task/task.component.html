@@ -6,10 +6,10 @@
             [ngClass]="{'input-error': isTaskTitleError}"
             placeholder="enter task"
             [(ngModel)]="taskTitle"
-            (keyup.enter)="createTask(taskTitle)"
+            (keyup.enter)="checkTitle()"
         >
     </label>
-    <button class="todo-btn  todo-btn-task" (click)="createTask(taskTitle)">Add task</button>
+    <button class="todo-btn  todo-btn-task" (click)="checkTitle()">Add task</button>
 </div>
 <div *ngIf="!isTaskLoading; else loading" >
     <div *ngIf="tasks.length; else taskNotFound">

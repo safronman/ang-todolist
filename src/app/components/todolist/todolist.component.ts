@@ -31,17 +31,21 @@ export class TodolistComponent implements OnInit {
             });
     }
 
-    addTodolist() {
+    checkTitle() {
         if (this.todolistTitle.trim()) {
             this.isTodolistTitleError = false;
-            this.todolistService.createTodolist(this.todolistTitle)
-                .subscribe((todo: Todolist) => {
-                    this.todolists.unshift(todo);
-                    this.todolistTitle = '';
-                });
+            this.addTodolist();
         } else {
             this.isTodolistTitleError = true;
         }
+    }
+
+    addTodolist() {
+        this.todolistService.createTodolist(this.todolistTitle)
+            .subscribe((todo: Todolist) => {
+                this.todolists.unshift(todo);
+                this.todolistTitle = '';
+            });
     }
 
     deleteTodolist(todoId: string) {
