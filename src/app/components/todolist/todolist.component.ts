@@ -13,6 +13,7 @@ export class TodolistComponent implements OnInit {
     todolistTitle = '';
     loadingTodolists = false;
     todoTitleEditModeId = '';
+    isTodolistTitleError = false;
 
     constructor(private todolistService: TodolistService) {
     }
@@ -31,11 +32,16 @@ export class TodolistComponent implements OnInit {
     }
 
     addTodolist() {
-        this.todolistService.createTodolist(this.todolistTitle)
-            .subscribe((todo: Todolist) => {
-                this.todolists.unshift(todo);
-                this.todolistTitle = '';
-            });
+        if (this.todolistTitle.trim()) {
+            this.isTodolistTitleError = false;
+            this.todolistService.createTodolist(this.todolistTitle)
+                .subscribe((todo: Todolist) => {
+                    this.todolists.unshift(todo);
+                    this.todolistTitle = '';
+                });
+        } else {
+            this.isTodolistTitleError = true;
+        }
     }
 
     deleteTodolist(todoId: string) {

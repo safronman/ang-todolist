@@ -16,6 +16,7 @@ export class TaskComponent implements OnInit {
     isTaskLoading: boolean;
     taskTitleEditModeId = '';
     filterValue = 'All';
+    isTaskTitleError = false;
 
     constructor(private todolistService: TodolistService) {
     }
@@ -34,11 +35,16 @@ export class TaskComponent implements OnInit {
     }
 
     createTask(title) {
-        this.todolistService.createTask(this.todolistId, title)
-            .subscribe((task: Task) => {
-                this.tasks.unshift(task);
-                this.taskTitle = '';
-            });
+        if (this.taskTitle.trim()) {
+            this.isTaskTitleError = false;
+            this.todolistService.createTask(this.todolistId, title)
+                .subscribe((task: Task) => {
+                    this.tasks.unshift(task);
+                    this.taskTitle = '';
+                });
+        } else {
+            this.isTaskTitleError = true;
+        }
     }
 
     deleteTask(taskId) {

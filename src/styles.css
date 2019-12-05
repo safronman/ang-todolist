@@ -6,7 +6,15 @@ html, body {
 }
 
 /*INPUT*/
-.todo-input {
+.todolist-input {
+    box-sizing: border-box;
+    width: 50%;
+    padding: 15px;
+    border: 2px solid darkgrey;
+    margin-right: 10px;
+}
+
+.task-input {
     padding: 10px;
     border: 2px solid lightgrey;
 }
@@ -15,6 +23,12 @@ html, body {
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 30px;
+}
+
+
+
+.input-error {
+    border: 2px solid crimson;
 }
 
 /*BUTTONS*/

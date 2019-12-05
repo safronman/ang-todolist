@@ -28,14 +28,6 @@
     margin-bottom: 20px;
 }
 
-.todo-header-input {
-    box-sizing: border-box;
-    width: 50%;
-    padding: 15px;
-    border: 2px solid darkgrey;
-    margin-right: 10px;
-}
-
 .todo-not-found {
     text-align: center;
 }

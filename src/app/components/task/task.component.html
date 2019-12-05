@@ -2,7 +2,8 @@
     <label>
         <input
             type="text"
-            class="todo-input"
+            class="task-input"
+            [ngClass]="{'input-error': isTaskTitleError}"
             placeholder="enter task"
             [(ngModel)]="taskTitle"
             (keyup.enter)="createTask(taskTitle)"

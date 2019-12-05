@@ -2,7 +2,8 @@
     <h1 class="todo-header-title">Angular todolist</h1>
     <label>
         <input type="text"
-               class="todo-header-input"
+               class="todolist-input"
+               [ngClass]="{'input-error': isTodolistTitleError}"
                placeholder="Enter todolist title"
                [(ngModel)]="todolistTitle"
                (keyup.enter)="addTodolist()"
@@ -27,7 +28,7 @@
                         <label>
                             <input
                                 type="text"
-                                class="todo-input  todo-input-new-title"
+                                class="task-input  todo-input-new-title"
                                 placeholder="Enter new title"
                                 value="{{ todolist.title }}"
                                 [(ngModel)]="todolist.title"
