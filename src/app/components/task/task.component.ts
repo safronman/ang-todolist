@@ -109,10 +109,13 @@ export class TaskComponent implements OnInit {
 
     checkAllTasks() {
         this.tasks.map((task: Task) => {
-            return task.completed = true;
+            const completedTask = {...task, completed: true};
+            this.todolistService.updateTask(completedTask)
+                .subscribe(() => {
+                    task.completed = true;
+                });
+
         });
-        // todo
-        // this.todolistService.updateTask()
     }
 
     getActiveTasks() {
