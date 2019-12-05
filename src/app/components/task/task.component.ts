@@ -106,4 +106,21 @@ export class TaskComponent implements OnInit {
             }
         }
     }
+
+    checkAllTasks() {
+        this.tasks.map((task: Task) => {
+            return task.completed = true;
+        });
+        // todo
+        // this.todolistService.updateTask()
+    }
+
+    getActiveTasks() {
+        const completedTasks = this.tasks.filter((task: Task) => {
+            return !task.completed;
+        });
+        return completedTasks.length;
+    }
 }
+
+

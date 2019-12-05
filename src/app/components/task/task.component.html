@@ -11,7 +11,7 @@
     </label>
     <button class="todo-btn  todo-btn-task" (click)="checkTitle()">Add task</button>
 </div>
-<div *ngIf="!isTaskLoading; else loading" >
+<div *ngIf="!isTaskLoading; else loading">
     <div *ngIf="tasks.length; else taskNotFound">
         <div *ngFor="let task of getFilteredTasks()" class="todo-task-wrapper">
             <div class="flex-container">
@@ -53,15 +53,25 @@
         <button
             class="todo-btn  todo-btn-filter"
             [ngClass]="{'todo-btn-filter-active': filterValue === 'All'}"
-            (click)="filterValue = 'All'">All</button>
+            (click)="filterValue = 'All'">All
+        </button>
         <button
             class="todo-btn  todo-btn-filter"
             [ngClass]="{'todo-btn-filter-active': filterValue === 'Completed'}"
-            (click)="filterValue = 'Completed'">Competed</button>
+            (click)="filterValue = 'Completed'">Competed
+        </button>
         <button
             class="todo-btn  todo-btn-filter"
             [ngClass]="{'todo-btn-filter-active': filterValue === 'Active'}"
-            (click)="filterValue = 'Active'">Active</button>
+            (click)="filterValue = 'Active'">Active
+        </button>
+    </div>
+
+    <hr class="hr">
+
+    <div class="flex-container  flex-container-center">
+        <button class="todo-btn  btn-check-all" (click)="checkAllTasks()">Check all tasks</button>
+        <p class="todo-items-left">{{getActiveTasks()}} items left</p>
     </div>
 
     <ng-template #taskNotFound>

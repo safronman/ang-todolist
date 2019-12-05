@@ -12,3 +12,7 @@
     font-size: 14px;
     font-style: italic;
 }
+
+.todo-items-left {
+    margin: 0;
+}
