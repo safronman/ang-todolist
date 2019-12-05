@@ -76,6 +76,12 @@ html, body {
     justify-content: space-between;
 }
 
+.flex-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
 .flex-container-center {
     align-items: center;
 }

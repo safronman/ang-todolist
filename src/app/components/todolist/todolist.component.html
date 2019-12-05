@@ -19,7 +19,7 @@
             <div>
                 <div *ngIf="todoTitleEditModeId !== todolist.id; else updateTodoTitleRef">
                     <div class="todo-inner-container">
-                        <h2 (dblclick)="changeTodoTitleEditMode(todolist.id)">{{ todolist.title }}</h2>
+                        <h2 (dblclick)="changeTodoTitleEditMode(todolist.id)">{{ todolist.title | slice:0:16 }}</h2>
                         <button class="todo-btn  btn-del" (click)="deleteTodolist(todolist.id)">X</button>
                     </div>
                 </div>

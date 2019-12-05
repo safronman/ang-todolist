@@ -1,4 +1,4 @@
-<div class="flex-container">
+<div class="flex-wrapper">
     <label>
         <input
             type="text"
@@ -29,7 +29,7 @@
                         <b
                             [ngClass]="{'task-completed': task.completed}"
                             (dblclick)="changeTaskTitleEditMode(task.id)"
-                        >{{ task.title }}
+                        >{{ task.title | slice :0:12 }}
                         </b>
                     </div>
                     <ng-template #editTaskTitle>
