@@ -15,6 +15,7 @@ export class TaskComponent implements OnInit {
     taskTitle = '';
     isTaskLoading: boolean;
     taskTitleEditModeId = '';
+    filterValue = 'All';
 
     constructor(private todolistService: TodolistService) {
     }
@@ -74,5 +75,25 @@ export class TaskComponent implements OnInit {
 
     changeTaskTitleEditMode(id) {
         this.taskTitleEditModeId = id;
+    }
+
+    getFilteredTasks(): Task[] {
+        switch (this.filterValue) {
+            case 'All': {
+                return this.tasks;
+            }
+
+            case 'Completed': {
+                return this.tasks.filter((task: Task) => {
+                    return task.completed;
+                });
+
+            }
+            case 'Active': {
+                return this.tasks.filter((task: Task) => {
+                    return !task.completed;
+                });
+            }
+        }
     }
 }

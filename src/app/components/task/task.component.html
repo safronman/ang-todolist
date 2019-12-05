@@ -1,4 +1,4 @@
-<div class="todo-form-container">
+<div class="flex-container">
     <label>
         <input
             type="text"
@@ -12,8 +12,8 @@
 </div>
 <div *ngIf="!isTaskLoading; else loading" >
     <div *ngIf="tasks.length; else taskNotFound">
-        <div *ngFor="let task of tasks" class="todo-task-wrapper">
-            <div class="todo-task-container">
+        <div *ngFor="let task of getFilteredTasks()" class="todo-task-wrapper">
+            <div class="flex-container">
                 <div class="todo-task-inner-container">
                     <label>
                         <input
@@ -46,6 +46,21 @@
             </div>
             <p class="todo-date">{{ task.addedDate | date: 'short'}}</p>
         </div>
+    </div>
+
+    <div class="flex-container">
+        <button
+            class="todo-btn  todo-btn-filter"
+            [ngClass]="{'todo-btn-filter-active': filterValue === 'All'}"
+            (click)="filterValue = 'All'">All</button>
+        <button
+            class="todo-btn  todo-btn-filter"
+            [ngClass]="{'todo-btn-filter-active': filterValue === 'Completed'}"
+            (click)="filterValue = 'Completed'">Competed</button>
+        <button
+            class="todo-btn  todo-btn-filter"
+            [ngClass]="{'todo-btn-filter-active': filterValue === 'Active'}"
+            (click)="filterValue = 'Active'">Active</button>
     </div>
 
     <ng-template #taskNotFound>

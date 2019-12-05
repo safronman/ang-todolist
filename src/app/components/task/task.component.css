@@ -1,15 +1,5 @@
-.todo-form-container {
-    display: flex;
-    justify-content: space-between;
-}
-
 .todo-task-wrapper {
     margin: 20px 0;
-}
-
-.todo-task-container {
-    display: flex;
-    justify-content: space-between;
 }
 
 .todo-task-inner-container {

@@ -42,7 +42,23 @@ html, body {
     height: 30px;
 }
 
+.todo-btn-filter {
+    padding: 10px;
+    width: 90px;
+}
+
+.todo-btn-filter-active {
+    color: white;
+    background-color: mediumseagreen;
+    border: 2px solid mediumseagreen;
+}
+
 /*CENTER*/
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .center {
     text-align: center;
 }
@@ -52,3 +68,4 @@ html, body {
     color: grey;
     text-decoration: line-through;
 }
+
